@@ -105,7 +105,12 @@ let getElementsUntilGreaterThanFive = (array) => {
 }
 
 let convertArrayToObject = (array) => {
-    return
+    return array.reduce((accum, value, index)=>{
+        if(index%2===0) {
+            accum[value] = array[index+1]
+        }
+        return accum
+    }, {})
 }
 
 let getAllLetters = (array) => {
@@ -113,15 +118,22 @@ let getAllLetters = (array) => {
 }
 
 let swapKeysAndValues = (object) => {
-    return 'Write your method here';
+    return Object.keys(object).reduce((accum, keys, i)=>{
+        let values = Object.values(object);
+        accum[values[i]] = keys
+        return accum
+    }, {})
 }
 
 let sumKeysAndValues = (object) => {
-    return 'Write your method here';
+    return Object.keys(object).reduce((accum,keys,i)=>{
+        let values = Object.values(object)
+        return accum + parseInt(keys) + parseInt(values[i])
+    }, 0)
 }
 
 let removeCapitals = (string) => {
-    return 'Write your method here';
+    return string.replace(/[A-Z]/g, '')
 }
 
 let roundUp = (number) => {
@@ -129,11 +141,11 @@ let roundUp = (number) => {
 }
 
 let formatDateNicely = (date) => {
-    return 'Write your method here';
+    return date.toLocaleDateString('fr-fr')
 }
 
 let getDomainName = (string) => {
-    return 'Write your method here';
+    return string.split('@').pop().split('.com').shift()
 }
 
 let titleize = (string) => {
@@ -141,7 +153,8 @@ let titleize = (string) => {
 }
 
 let checkForSpecialCharacters = (string) => {
-    return 'Write your method here';
+    
+    return string.match(/^[a-zA-Z0-9 ]*$/) === null;
 }
 
 let squareRoot = (number) => {
@@ -157,13 +170,19 @@ let factorial = (number) => {
 }
 
 let findAnagrams = (string) => {
-    return string === [...string].reverse().join('')
+
+    let str = 'mad'
+    for (let letter of str) {
+        console.log(letter)
+    }
+    
+    return 'Write your method here';
 }
 
 let convertToCelsius = (number) => {
-    return 'Write your method here';
+    return Math.round((5*number - 160)/9)
 }
 
 let letterPosition = (array) => {
-    return 'Write your method here';
+    return array.map((elem)=>elem.toUpperCase().charCodeAt(0) - 64)
 }
